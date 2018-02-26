@@ -1,0 +1,9 @@
+deployment:
+		dockerhub:
+			branch: master
+			commands:
+			- $DOCKER_HUB_TRIGGER
+			
+			
+DOCKER_HUB_TRIGGER
+curl -H "Content-Type:application/json" --data '{"build":true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/40976cec-1c1e-4cb8-8856-17e837cc3e0e/
