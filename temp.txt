@@ -6,4 +6,30 @@ deployment:
 			
 			
 DOCKER_HUB_TRIGGER
+curl -g --data '{"build": true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/c612b113-3003-4b77-bd84-b25ea16297c9/
+
+
 curl -H "Content-Type:application/json" --data '{"build":true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/40976cec-1c1e-4cb8-8856-17e837cc3e0e/
+
+curl -d '{"build":"true"}' -H "Content-Type: application/json" -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/40976cec-1c1e-4cb8-8856-17e837cc3e0e/
+
+curl -H "Content-Type: application/json" --data '{"build":"true"}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
+curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
+
+$ curl --data build=true -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/c612b113-3003-4b77-bd84-b25ea16297c9/
+
+
+
+
+# Trigger all tags/branchs for this automated build.
+$ curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
+curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/c612b113-3003-4b77-bd84-b25ea16297c9/
+
+# Trigger by docker tag name
+$ curl -H "Content-Type: application/json" --data '{"docker_tag": "master"}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
+
+# Trigger by Source branch named staging
+$ curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "staging"}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
+
+# Trigger by Source tag named v1.1
+$ curl -H "Content-Type: application/json" --data '{"source_type": "Tag", "source_name": "v1.1"}' -X POST https://registry.hub.docker.com/u/achisolomon/plural-sight-docker-ci/trigger/9676b101-db80-4cc0-b75c-131595531769/
